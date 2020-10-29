@@ -14,6 +14,16 @@ This container will run on an Amazon EC2 instance with:
     * cloudwatch:ListMetrics
     * ec2:DescribeTags
 
+## build
+```bash
+make build
+```
+
+## publish
+```bash
+REGISTRY="..." make publish
+```
+
 ## Running
 
 There is two optional environment variables for running this container:
@@ -23,10 +33,10 @@ There is two optional environment variables for running this container:
 Example:
 
 ```
-docker run --rm -d --name cloudwatch \
+docker run --rm -d --name aws-cloudwatch \
 		-e OPTIONS="--mem-util --swap-util --disk-space-util --disk-path=/data" \
 		-e CRON="* * * * *" \
-		sparklane/cloudwatch-monitor
+		aws-cloudwatch
 ```
 
 
