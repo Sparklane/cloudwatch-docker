@@ -2,12 +2,14 @@
 NAME ?= aws-cloudwatch
 VERSION ?= latest
 REGISTRY ?= ""
+CLOUDWATCH_MONITORING_SCRIPTS_ZIP_URL ?= "https://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.2.zip"
 
 all: build publish
 
 build:
 	@docker build -t $(NAME):$(VERSION) \
-	--rm=true .
+		--build-arg CLOUDWATCH_MONITORING_SCRIPTS_ZIP_URL=$(CLOUDWATCH_MONITORING_SCRIPTS_ZIP_URL) \
+		--rm=true .
 
 publish: build
 	@docker tag $(NAME):$(VERSION) $(REGISTRY)/$(NAME):$(VERSION)
