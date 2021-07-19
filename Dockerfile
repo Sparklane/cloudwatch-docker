@@ -2,7 +2,6 @@ FROM alpine:3.14.0
 LABEL maintainer="devops@sparklane.fr"
 
 ARG CLOUDWATCH_MONITORING_SCRIPTS_ZIP_URL
-RUN echo $CLOUDWATCH_MONITORING_SCRIPTS_ZIP_URL
 RUN apk -Uv add su-exec coreutils perl perl-switch perl-datetime perl-lwp-protocol-https perl-digest-sha1 perl-sys-syslog
 RUN wget -O /tmp/aws-scripts-mon.zip $CLOUDWATCH_MONITORING_SCRIPTS_ZIP_URL \
  && mkdir -p /opt \
