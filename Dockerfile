@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:3.14.0
 LABEL maintainer="devops@sparklane.fr"
 
 ARG CLOUDWATCH_MONITORING_SCRIPTS_ZIP_URL
